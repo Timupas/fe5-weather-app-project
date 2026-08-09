@@ -1,0 +1,199 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  font-family: "Montserrat Alternates";
+}
+
+.closeButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+
+  color: #111111;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 400;
+
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  background-color: #f1f1f1;
+  color: #ff8f2f;
+}
+
+@media screen and (min-width: 768px) {
+  .closeButton {
+    top: 16px;
+    right: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .closeButton {
+    top: 20px;
+    right: 24px;
+  }
+}
+
+.modal {
+  position: relative;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+
+.title {
+  margin: 0 0 30px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 25px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.input {
+  /* width: 100%; */
+  width: 243px;
+  /* height: 32px; */
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: #e4e4e4;
+  color: #111111;
+  font-size: 10px;
+}
+
+.input::placeholder {
+  color: #ababab;
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  padding: 10px 30px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffb36b;
+  color: #111111;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.loginText {
+  margin: 0;
+  font-size: 9px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.loginLink {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 30px 45px 22px 45px;
+  }
+  .title {
+    margin: 0 0 17px;
+    font-size: 22px;
+  }
+
+  .label {
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .input {
+    width: 310px;
+    font-size: 11px;
+  }
+
+  .button {
+    margin-top: 0;
+    margin-bottom: 17px;
+    font-size: 14px;
+  }
+
+  .loginText {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    padding: 28px 80px;
+  }
+
+  .title {
+    margin: 0 0 40px;
+    font-size: 28px;
+  }
+
+  .label {
+    gap: 11px;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  .input {
+    width: 440px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 12px;
+  }
+
+  .button {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .loginText {
+    font-size: 11px;
+  }
+}

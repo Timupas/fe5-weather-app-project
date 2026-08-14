@@ -1,0 +1,116 @@
+.weekly {
+  padding: 25px;
+  border-radius: 15px;
+  background-color: #e8e8e8;
+}
+
+.title {
+  margin: 0 0 25px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.date,
+.temperature,
+.description {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.temperatureBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .item {
+    min-height: 40px;
+    padding: 6px 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .temperatureBox {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .date,
+  .temperature,
+  .description {
+    font-size: 14px;
+  }
+
+  .description {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .weekly {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 42px 76px;
+  }
+  .list {
+    gap: 10px;
+  }
+
+  .item {
+    padding: 6px 15px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .date,
+  .temperature,
+  .description {
+    font-size: 16px;
+  }
+
+  .description {
+    text-align: right;
+  }
+}

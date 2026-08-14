@@ -1,0 +1,148 @@
+.card {
+  width: 293px;
+  flex-shrink: 0;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locationRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.city,
+.country {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.time {
+  margin: 0 0 11px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* .dateBadge {
+  margin-bottom: 22px;
+  padding: 5px 13px;
+  border-radius: 10px;
+  background-color: #ffb36b;
+  font-size: 8px;
+  line-height: 1;
+} */
+
+.forecast {
+  gap: 21px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hourlyForecast,
+.weeklyForecast {
+  display: flex;
+  padding: 8px 18px;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  background: #ffb36c;
+  border: none;
+}
+
+.exactlyTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-right: 20px;
+}
+
+.date {
+  padding-right: 12px;
+  border-right: 1px solid #000;
+}
+
+.date,
+.day {
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.temperature {
+  /* margin: 0 auto 44px; */
+  margin-top: 0;
+  margin-bottom: 44px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.actions {
+  width: 100%;
+  /* margin-top: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconButton,
+.favoriteButton {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+}
+
+.iconRefresh,
+.iconFavorite,
+.iconDelete {
+  width: 24px;
+  height: 24px;
+}
+
+.favoriteButton {
+  color: #ff4b55;
+  font-size: 18px;
+}
+
+.moreButton {
+  /* min-width: 66px;
+  height: 22px;
+  border: none;
+  border-radius: 9px;
+  background-color: #ffb36b;
+  color: #111111;
+  font-size: 8px; */
+  display: inline-flex;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #ffb36c;
+  border: none;
+  font-size: 10px;
+  font-weight: 550;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}

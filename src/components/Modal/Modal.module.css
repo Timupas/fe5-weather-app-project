@@ -61,7 +61,8 @@
   position: relative;
   padding: 20px;
   border-radius: 25px;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .title {
@@ -86,9 +87,7 @@
 }
 
 .input {
-  /* width: 100%; */
   width: 243px;
-  /* height: 32px; */
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 20px;

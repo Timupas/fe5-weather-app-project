@@ -1,8 +1,5 @@
+import { useState } from "react";
 import styles from "./WeatherItem.module.css";
-import fovorite from "./img/fovorite.svg";
-import update from "./img/update.svg";
-import delet from "./img/delete.svg";
-
 import { FiHeart, FiRefreshCw } from "react-icons/fi";
 import { TfiTrash } from "react-icons/tfi";
 
@@ -16,8 +13,14 @@ export const WeatherItem = ({
   dayMonthYear,
   weekday,
 }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const iconCode = weather.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+  const toggleFavorite = () => {
+    setIsFavorite((prev) => !prev);
+  };
 
   return (
     <li className={styles.card}>
@@ -51,16 +54,21 @@ export const WeatherItem = ({
 
       <div className={styles.actions}>
         <button className={styles.iconButton} type="button">
-          {/* <img className={styles.iconRefresh} src={update} alt="Refresh" /> */}
           <FiRefreshCw
             className={styles.iconRefresh}
             onClick={() => handleRefreshLocation(weather)}
           />
         </button>
 
-        <button className={styles.favoriteButton} type="button">
-          {/* <img className={styles.iconFavorite} src={fovorite} alt="Favorite" /> */}
-          <FiHeart className={styles.iconFavorite} />
+        <button
+          className={`${styles.favoriteButton} ${isFavorite ? styles.favoriteActive : ""}`}
+          type="button"
+          onClick={toggleFavorite}
+        >
+          <FiHeart
+            className={styles.iconFavorite}
+            fill={isFavorite ? "#ff4b55" : "none"}
+          />
         </button>
 
         <button
@@ -76,7 +84,6 @@ export const WeatherItem = ({
           type="button"
           onClick={() => handleDeleteLocation(weather.id)}
         >
-          {/* <img className={styles.iconDelete} src={delet} alt="Delete" /> */}
           <TfiTrash className={styles.iconDelete} />
         </button>
       </div>

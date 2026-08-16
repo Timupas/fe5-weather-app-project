@@ -1,11 +1,23 @@
 .news {
   padding-bottom: 42px;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.title,
+.news h1,
+.news h2,
+.news h3,
+.news h4,
+.news p,
+.news span,
+.news a {
+  color: var(--text-color) !important;
 }
 
 .title {
   margin: 0 0 30px;
-  color: #000;
   font-size: 20px;
   font-weight: 500;
   text-align: center;
@@ -17,7 +29,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background: #ffb36c;
+  background: var(--color-orange, #ffb36c);
+  color: #111111 !important;
   border: none;
   font-size: 10px;
   font-weight: 550;
@@ -38,7 +51,7 @@
     align-items: center;
     gap: 10px;
     border-radius: 10px;
-    background: #ffb36c;
+    background: var(--color-orange, #ffb36c);
     border: none;
     font-size: 16px;
     font-weight: 500;

@@ -1,10 +1,10 @@
 import { useState } from "react";
-
+import { FiSun, FiMoon } from "react-icons/fi";
 import styles from "./Header.module.css";
 import headerLogo from "./img/logo.svg";
 import userLogo from "./img/userLogo.svg";
 
-export const Header = ({ handleModalToggle, name }) => {
+export const Header = ({ handleModalToggle, name, theme, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -30,20 +30,34 @@ export const Header = ({ handleModalToggle, name }) => {
           </a>
         </nav>
 
-        <div className={styles.profile}>
-          {name ? (
-            <p className={styles.userNameRegister}>Hi, {name}!</p>
-          ) : (
-            <button
-              className={styles.signUpButton}
-              type="button"
-              onClick={handleModalToggle}
-            >
-              Sign Up
-            </button>
-          )}
+        <div className={styles.rightSection}>
+          <label className={styles.themeSwitch} title="Toggle theme">
+            <input
+              type="checkbox"
+              onChange={toggleTheme}
+              checked={theme === "dark"}
+            />
+            <span className={styles.slider}>
+              <FiSun className={styles.sunIcon} />
+              <FiMoon className={styles.moonIcon} />
+            </span>
+          </label>
 
-          <img className={styles.profileIcon} src={userLogo} alt="User" />
+          <div className={styles.profile}>
+            {name ? (
+              <p className={styles.userNameRegister}>Hi, {name}!</p>
+            ) : (
+              <button
+                className={styles.signUpButton}
+                type="button"
+                onClick={handleModalToggle}
+              >
+                Sign Up
+              </button>
+            )}
+
+            <img className={styles.profileIcon} src={userLogo} alt="User" />
+          </div>
         </div>
 
         <button
@@ -93,6 +107,18 @@ export const Header = ({ handleModalToggle, name }) => {
           </nav>
 
           <div className={styles.mobileProfile}>
+            <label className={styles.themeSwitch}>
+              <input
+                type="checkbox"
+                onChange={toggleTheme}
+                checked={theme === "dark"}
+              />
+              <span className={styles.slider}>
+                <FiSun className={styles.sunIcon} />
+                <FiMoon className={styles.moonIcon} />
+              </span>
+            </label>
+
             <img
               className={styles.mobileProfileIcon}
               src={userLogo}

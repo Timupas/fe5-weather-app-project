@@ -6,38 +6,45 @@ import { News } from "./components/News/News";
 import { SearchPhotos } from "./components/SearchPhotos/SearchPhotos";
 import { Footer } from "./components/Footer/Footer";
 import { Modal } from "./components/Modal/Modal";
-
 import { weatherApi } from "./weatherApi";
 import { forecastApi } from "./forecastApi";
 import { picturesApi } from "./picturesApi";
 import { newsApi } from "./newsApi";
 import { useEffect, useState } from "react";
-
 import { MagnifyingGlass } from "react-loader-spinner";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  // ! Weather States
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [locationsList, setLocationsList] = useState(
-    JSON.parse(localStorage.getItem("locationsList")) || [],
+    JSON.parse(localStorage.getItem("locationsList")) || []
   );
   const [selectedWeather, setSelectedWeather] = useState(null);
   const [selectedForecast, setSelectedForecast] = useState(null);
   const [isWeatherLoading, setIsWeatherLoading] = useState(false);
 
-  // ! Images States
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageQuery, setImageQuery] = useState("");
   const [imagePage, setImagePage] = useState(1);
   const [totalImages, setTotalImages] = useState(0);
   const [isImagesLoading, setIsImagesLoading] = useState(false);
 
-  // ! News States
   const [newsQuery, setNewsQuery] = useState("");
   const [selectedNews, setSelectedNews] = useState([]);
   const [newsPage, setNewsPage] = useState(1);
@@ -59,7 +66,7 @@ function App() {
 
   const handleDeleteLocation = (id) => {
     setLocationsList((prevLocations) =>
-      prevLocations.filter((location) => location.id !== id),
+      prevLocations.filter((location) => location.id !== id)
     );
 
     if (selectedWeather?.id === id) {
@@ -84,8 +91,8 @@ function App() {
       .then((updatedWeather) => {
         setLocationsList((prevLocations) =>
           prevLocations.map((location) =>
-            location.id === weather.id ? updatedWeather : location,
-          ),
+            location.id === weather.id ? updatedWeather : location
+          )
         );
 
         if (selectedWeather?.id === weather.id) {
@@ -115,14 +122,10 @@ function App() {
       })
       .finally(() => setIsWeatherLoading(false));
 
-    // ! Images resetting
-
     setImageQuery(weather.name);
     setSelectedImages([]);
     setImagePage(1);
     setTotalImages(0);
-
-    // ! News resetting
 
     setNewsQuery(weather.name);
     setSelectedNews([]);
@@ -135,10 +138,7 @@ function App() {
   };
 
   const handleLoadMoreImages = () => {
-    if (isImagesLoading) {
-      return;
-    }
-    if (selectedImages.length >= totalImages) {
+    if (isImagesLoading || selectedImages.length >= totalImages) {
       return;
     }
     const nextPage = imagePage + 1;
@@ -155,7 +155,6 @@ function App() {
     picturesApi(query, page)
       .then((res) => {
         setSelectedImages((prevImages) => [...prevImages, ...res.hits]);
-
         setTotalImages(res.totalHits);
         setImagePage(page);
       })
@@ -168,10 +167,7 @@ function App() {
   };
 
   const handleLoadMoreNews = () => {
-    if (isNewsLoading) {
-      return;
-    }
-    if (selectedNews.length >= totalNews) {
+    if (isNewsLoading || selectedNews.length >= totalNews) {
       return;
     }
 
@@ -213,7 +209,7 @@ function App() {
       .then((res) => {
         setLocationsList((prevLocations) => {
           const isAlreadyAdded = prevLocations.some(
-            (item) => item.id === res.id,
+            (item) => item.id === res.id
           );
 
           if (isAlreadyAdded) {
@@ -222,7 +218,6 @@ function App() {
           }
 
           toast.success(`${res.name} added successfully`);
-
           return [...prevLocations, res];
         });
       })
@@ -243,7 +238,12 @@ function App() {
 
   return (
     <>
-      <Header handleModalToggle={handleModalToggle} name={name} />
+      <Header
+        handleModalToggle={handleModalToggle}
+        name={name}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
 
       <main>
         <Hero createLocation={createLocation} />
@@ -313,7 +313,7 @@ function App() {
         closeOnClick
         pauseOnHover
         draggable
-        theme="colored"
+        theme={theme === "dark" ? "dark" : "colored"}
       />
     </>
   );

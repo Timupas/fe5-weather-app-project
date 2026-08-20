@@ -47,8 +47,8 @@ export const HourlyForecast = ({ forecast }) => {
       {
         label: "Temperature",
         data: temperatures,
-        borderColor: "#ffb36c",
-        backgroundColor: "#ffb36c",
+        borderColor: "#507fff",
+        backgroundColor: "#507fff",
         tension: 0.35,
         pointRadius: 0,
         borderWidth: 2,

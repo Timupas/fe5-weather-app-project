@@ -40,7 +40,7 @@
 .closeButton:hover,
 .closeButton:focus {
   background-color: #f1f1f1;
-  color: #ff8f2f;
+  color: #3a6fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -111,7 +111,7 @@
   margin-bottom: 15px;
   border: none;
   border-radius: 10px;
-  background-color: #ffb36b;
+  background-color: #507fff;
   color: #111111;
   font-size: 12px;
   font-weight: 500;

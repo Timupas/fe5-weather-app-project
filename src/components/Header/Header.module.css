@@ -41,7 +41,7 @@
 
 .navLink:hover,
 .navLink:focus {
-  color: var(--color-orange, #ff9f45);
+  color: var(--color-orange, #507fff);
 }
 
 .rightSection {
@@ -61,7 +61,7 @@
   gap: 10px;
   border: none;
   border-radius: 10px;
-  background: var(--color-orange, #ffb36c);
+  background: var(--color-orange, #507fff);
   color: #111111;
   font-family: "Montserrat Alternates";
   cursor: pointer;
@@ -69,7 +69,7 @@
 
 .signUpButton:hover,
 .signUpButton:focus {
-  background-color: #f7a34f;
+  background-color: #507fff;
 }
 
 .profileIcon {
@@ -77,10 +77,14 @@
 }
 
 .themeSwitch {
+  display: none;
   position: relative;
-  display: inline-block;
   width: 52px;
   height: 26px;
+}
+
+.mobileProfile .themeSwitch {
+  display: inline-block;
 }
 
 .themeSwitch input {
@@ -127,7 +131,7 @@
 }
 
 .sunIcon {
-  color: var(--color-orange, #ffb36c);
+  color: var(--color-orange, #507fff);
 }
 
 .moonIcon {
@@ -215,7 +219,7 @@
 
 .mobileNavLink:hover,
 .mobileNavLink:focus {
-  color: var(--color-orange, #ff9f45);
+  color: var(--color-orange, #507fff);
 }
 
 .mobileProfile {
@@ -234,7 +238,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
-  background-color: var(--color-orange, #ffb36c);
+  background-color: var(--color-orange, #507fff);
   color: #111111;
   font-family: "Montserrat Alternates";
   font-size: 16px;
@@ -244,7 +248,7 @@
 
 .mobileSignUpButton:hover,
 .mobileSignUpButton:focus {
-  background-color: #f7a34f;
+  background-color: #507fff;
 }
 
 .userNameRegister {
@@ -254,7 +258,6 @@
   color: var(--text-color, #000);
 }
 
-/* Адаптив */
 @media screen and (min-width: 768px) {
   .headerContainer {
     height: 70px;
@@ -292,6 +295,10 @@
   .mobileMenuButton,
   .mobileMenu {
     display: none;
+  }
+
+  .rightSection .themeSwitch {
+    display: inline-block;
   }
 }
 

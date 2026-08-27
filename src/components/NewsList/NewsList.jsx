@@ -53,29 +53,28 @@ export const NewsList = ({
         }
       }}
     >
-      {news.map((item) => (
-        <SwiperSlide key={item.url} className={styles.slide}>
+      {news.map((item, index) => (
+        <SwiperSlide key={item.id || item.url || index} className={styles.slide}>
           <NewsItem item={item} />
         </SwiperSlide>
       ))}
 
       {isNewsLoading && (
         <SwiperSlide className={styles.slide}>
-            <Triangle
-              visible={isNewsLoading}
-              height="100"
-              width="100"
-              color="#4fa94d"
-              ariaLabel="triangle-loading"
-              wrapperStyle={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: 0,
-                margin: "auto",
-              }}
-              wrapperClass=""
-            />
+          <Triangle
+            visible={isNewsLoading}
+            height="100"
+            width="100"
+            color="#4fa94d"
+            ariaLabel="triangle-loading"
+            wrapperStyle={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "auto",
+            }}
+            wrapperClass=""
+          />
         </SwiperSlide>
       )}
     </Swiper>
